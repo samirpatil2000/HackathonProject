@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .forms import ProductUploadForm,CreateRequestForm
 from .models import RequestForProduct,Product
+from django.contrib import messages
 # Create your views here.
 
 
@@ -10,6 +11,12 @@ def index(request):
         'objects':RequestForProduct.objects.filter(is_submitted=False)
     }
     # return render(request,'product/index.html',context)
+    if request.user.is_authenticated:
+        if not request.user.group:
+            messages.warning(request,'Please Join Your Respected Group.!')
+    else:
+        messages.warning(request, 'Please Kindly Register.!')
+
     return render(request,'main/index.html',context)
 
 

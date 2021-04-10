@@ -8,6 +8,28 @@ from django.urls import reverse
 
 user=settings.AUTH_USER_MODEL
 
+
+
+class Group(models.Model):
+    name=models.CharField(max_length=50)
+    admins= models.ManyToManyField(user, blank=True,related_name="group_admins")
+    def __str__(self):
+        return str(self.name)
+
+#
+#
+# class GroupAdmin(models.Model):
+#     group=models.OneToOneField(Group,on_delete=models.CASCADE)
+#     group_admins=models.ManyToManyField(user,blank=True)
+#
+#     def __str__(self):
+#         return str(self.group.name)
+
+
+
+
+
+
 class Category(models.Model):
 
     name=models.CharField(default="Hammers",max_length=100)

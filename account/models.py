@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-
+from product.models import Group
 
 class MyAccountManager(BaseUserManager):
 	def create_user(self, email, username, password=None):
@@ -62,6 +62,8 @@ class Account(AbstractBaseUser):
 
 
 	profile_pic=models.ImageField(upload_to='profile_pics',blank=True,null=True)
+
+	group=models.ForeignKey(Group,on_delete=models.SET_NULL,blank=True,null=True)
 
 
 	objects= MyAccountManager()
