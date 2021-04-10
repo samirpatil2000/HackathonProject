@@ -9,8 +9,13 @@ Online Platform for apartment complexes, where apartment members can share produ
 
 ---
 
-## Contributors
-Alt-my name
+..## Contributors
+
+1. Samir Patil
+2. Srishti Sharma
+3. Ashish Kumar
+4. Nitin Chiliveri
+
 
 
 
