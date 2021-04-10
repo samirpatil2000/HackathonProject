@@ -11,6 +11,7 @@ Every product manufactured leads to carbon emissions.
 ## SOLUTION
 
 Presenting the ""
+
 A platform where we believe that _Sharing leads to a greener world._
 A user can share products for a particular period of time. Any resident who requires a product can make request by providing the detail of the product. Al the registered users will receive a notification of the request made. If any resident member has that requested equipment and if they agree to share their equipment, they can click on the check box and notify that they can share that product. The user who had made request can now approach the resident and take the product, use it and then return to the owner. In this way without using the multiple products, residents can manage to do their work and with less demand, less products will be manufactured, which in turn lead to less carbon emission. 
 
@@ -20,7 +21,11 @@ A user can share products for a particular period of time. Any resident who requ
 2. If you are a new resident or a new user, you can click on 'Register' and then create a new acccount on our site.
 3. Provide the required personal information like Name, Address, Phone number etc and create a Password.
 4. Once registered, you can login.
-5. Now, 
+5. Now, if you need a product/ equipment - click on 'Make a request of product'.
+6. After that you will be directed to a new page where you have to enter the details to make request.
+7. Once the request is made, all the registered residents will be notified about the request.
+8. If any resident has that product and can lend him/her, then they can 'Respond to that request'.
+9. 
 
 
 #### Contributors
