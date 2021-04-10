@@ -110,6 +110,10 @@ def createGroup(request):
             current_user_account=Account.objects.get(username=user.username)
             current_user_account.group=gp
             current_user_account.save()
+            try:
+                RequestForJoinGroup.objects.get(user=user).delete()
+            except:
+                pass
             messages.success(request,f"You successfully created group {gp.name}")
             return redirect('index-page')
     context={'form':gpForm}
@@ -150,4 +154,26 @@ def cancel_group_joining_request(request):
         return redirect('index-page')
     except ObjectDoesNotExist:
         messages.warning(request, f"No request ..!")
+        return redirect('index-page')
+
+@login_required
+def request_list_for_joining_group(request):
+    user=request.user
+    current_user=Account.objects.get(username=user.username)
+    # try:
+    user_group=current_user.group
+    try:
+        if user in user_group.admins.all():
+            try:
+                joining_requests=RequestForJoinGroup.objects.all().filter(group=user_group)
+            except:
+                messages.warning(request,f'There is no any joining request')
+                joining_requests = None
+            context={
+                'group':user_group,
+                'requests':joining_requests,
+            }
+            return render(request,'main/group_admin.html',context)
+    except:
+        messages.warning(request, f"You Don't have any group")
         return redirect('index-page')

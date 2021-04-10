@@ -71,6 +71,8 @@
                                     {% if not request.user.group %}
                                         <a class="nav-link theme-btn" href="{% url 'groups' %}"><span>Join Group</span></a>
                                         <a class="nav-link theme-btn" href="{% url 'create-group' %}"><span>Create Group</span></a>
+                                    {% else %}
+                                        <a class="nav-link theme-btn" href="{% url 'request_list_for_joining_group' %}"><span>Your Group</span></a>
                                     {% endif %}
                                 {% else %}
                                     <a class="nav-link theme-btn" href="{% url 'register' %}"><span>SIGN IN</span></a>

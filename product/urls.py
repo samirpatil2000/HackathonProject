@@ -17,6 +17,8 @@ urlpatterns = [
     path('send-joining-request/<group_id>',views.sendRequestGroup,name="send_joining_request"),
     path('view-send-joining-request/',views.view_send_request_to_group,name="view_send_joining_request"),
     path('cancel-joining-request/',views.cancel_group_joining_request,name="cancel_group_joining_request"),
+
+    path('group-joining-request/',views.request_list_for_joining_group,name='request_list_for_joining_group'),
  ]
 
 
