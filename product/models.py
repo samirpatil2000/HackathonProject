@@ -31,6 +31,16 @@ class Group(models.Model):
     def __str__(self):
         return str(self.name)
 
+
+class RequestForJoinGroup(models.Model):
+
+    user=models.OneToOneField(user,on_delete=models.CASCADE)
+    group=models.ForeignKey(Group,on_delete=models.CASCADE)
+    is_accepted= models.BooleanField(default=False)
+
+
+
+
 #
 #
 # class GroupAdmin(models.Model):

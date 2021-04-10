@@ -1,0 +1,54 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block style %}
+  <style>
+  	@media only screen and (max-width: 554px){
+  	.vid-wid{
+  		width: 250px;
+  	}
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+{#    <section class="page-title">#}
+        <div class="container">
+                <div class="col-lg-12 pt-0 pt-lg-5">
+                    <div class="text-center">
+                        <div class="col-lg-6">
+                    <br>
+                        <br>
+                        <br>
+                        <div class="contact-box text-center">
+                                <div class="contact-icon mb-4">
+    {#                                <div class="course-img">#}
+    {#									<img src="{{ obj.thumbnail.url }}">#}
+    {#								</div>#}
+                                    <br>
+                                    <br>
+                                    <h5>{{ group.name }}</h5>
+                                    <h6>{{ group.group_address }}</h6>
+                                </div>
+                                <div class="course-btn">
+                                    <a href="#" class="">
+                                        <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>
+                                        <span>Requested</span>
+                                    </a>
+                                    <a href="{% url 'cancel_group_joining_request' %}" class="theme-btn">
+                                        <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>
+                                        <span>Cancel</span>
+                                    </a>
+                                </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    </div>
+                </div>
+            </div>
+
+{#    </section>#}
+
+{% endblock %}

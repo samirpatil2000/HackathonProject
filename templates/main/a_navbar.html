@@ -60,10 +60,11 @@
                                     <div class="dropdown">
                                          <li class="nav-item">
                                             <a class="nav-link" href="#">PROFILE</a>
-                                        </li>
+                                         </li>
                                           <div class="dropdown-content">
-                                            <a href="#">YOUR PRODUCT LIST</a>
-                                            <a href="#">BORROWED PRODUCTS</a>
+                                            <a href="#">PRODUCT LIST</a>
+                                            <a href="{% url 'view_send_joining_request' %}">SEND REQUEST</a>
+                                            <a href="#">BORROWED History</a>
                                             <a style="color: red" href="{% url 'logout' %}"><span>LOGOUT</span></a>
                                           </div>
                                     </div>

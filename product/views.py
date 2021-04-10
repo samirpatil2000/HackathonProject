@@ -1,7 +1,8 @@
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 from .forms import ProductUploadForm,CreateRequestForm,CreateGroupForm
-from .models import RequestForProduct,Product,Group
+from .models import RequestForProduct,Product,Group,RequestForJoinGroup
 from django.contrib import messages
 from account.models import Account
 # Create your views here.
@@ -113,3 +114,40 @@ def createGroup(request):
             return redirect('index-page')
     context={'form':gpForm}
     return render(request,'product/create_group.html',context)
+
+
+@login_required
+def sendRequestGroup(request,group_id):
+    user = request.user
+    group = Group.objects.get(id=group_id)
+    try:
+        RequestForJoinGroup.objects.create(user=user,group=group)
+        messages.success(request,f"You successfully send request to join {group.name}")
+        return redirect('index-page')
+    except:
+        messages.warning(request, f"You can send only request at a time")
+        return redirect('index-page')
+    # return render(request,'main/groups.html')
+
+@login_required
+def view_send_request_to_group(request):
+    user=request.user
+    context={}
+    try:
+        object=RequestForJoinGroup.objects.get(user=user)
+        context['group']=object.group
+        return render(request,'main/group_request.html',context)
+    except ObjectDoesNotExist:
+        messages.warning(request, f"No request ..!")
+        return redirect('index-page')
+
+@login_required
+def cancel_group_joining_request(request):
+    user = request.user
+    try:
+        RequestForJoinGroup.objects.get(user=user).delete()
+        messages.success(request, f"Delete request successfully")
+        return redirect('index-page')
+    except ObjectDoesNotExist:
+        messages.warning(request, f"No request ..!")
+        return redirect('index-page')

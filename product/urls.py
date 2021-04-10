@@ -12,8 +12,16 @@ urlpatterns = [
     path('product/<id>',views.productDetailView,name="product-detail"),
     path('groups/',views.groupListPage,name='groups'),
     path('create-group/',views.createGroup,name='create-group'),
+
+    #send request
+    path('send-joining-request/<group_id>',views.sendRequestGroup,name="send_joining_request"),
+    path('view-send-joining-request/',views.view_send_request_to_group,name="view_send_joining_request"),
+    path('cancel-joining-request/',views.cancel_group_joining_request,name="cancel_group_joining_request"),
  ]
 
 
 #TODO
 # add urls to messages
+# group filter with address
+# request filter with address
+# post filer

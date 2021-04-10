@@ -61,7 +61,7 @@
                                 <h6>{{ obj.group_address }}</h6>
                             </div>
                             <div class="course-btn">
-                                <a href="{{ obj.get_course_absolute_url }}" class="theme-btn">
+                                <a href="{% url 'send_joining_request' obj.id %}" class="theme-btn">
                                     <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>
                                     <span>request to join</span>
                                 </a>
