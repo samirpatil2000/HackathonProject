@@ -1,12 +1,12 @@
-{% extends 'account/base.html' %}
+{% extends 'main/base.html' %}
 {% load crispy_forms_tags %}
 {% block title %}Get Set Greenary / Create Product Request{% endblock %}
-{% block body %}
+{% block content %}
 
 <div class="container">
     <form method="POST">
         {% csrf_token %}
-        <fieldset class="form-group">
+        <fieldset class="form-group" style="color: black">
             <legend class="'border-bottom mb-4">Create Product Request</legend>
            {{ form | crispy  }}
         </fieldset>
@@ -16,4 +16,4 @@
     </form>
 </div>
 
-{% endblock body %}
+{% endblock %}

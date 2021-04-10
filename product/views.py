@@ -9,8 +9,15 @@ def index(request):
     context={
         'objects':RequestForProduct.objects.filter(is_submitted=False)
     }
-    return render(request,'product/index.html',context)
+    # return render(request,'product/index.html',context)
+    return render(request,'main/index.html',context)
 
+
+def requestListPage(request):
+    context = {
+        'objects': RequestForProduct.objects.filter(is_submitted=False)
+    }
+    return render(request, 'main/request_list.html', context)
 
 @login_required
 def uploadProduct(request):

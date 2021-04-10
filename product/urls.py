@@ -6,4 +6,5 @@ urlpatterns = [
     path('',views.index,name='index-page'),
     path('upload-products/',views.uploadProduct,name='upload-products'),
     path('create-product-request/',views.create_product_request,name='create-product-request'),
+    path('request-page/',views.requestListPage,name='request-page'),
  ]

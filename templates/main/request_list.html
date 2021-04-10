@@ -1,0 +1,78 @@
+{% extends 'main/base.html' %}
+
+{% block style %}
+  <style>
+  	@media only screen and (max-width: 554px){
+  	.vid-wid{
+  		width: 250px;
+  	}
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+    <section class="page-title">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 pt-0 pt-lg-5">
+                    <div class="text-center pt-0 pt-lg-5">
+                        <h2 class="text-white">Requests</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- banner -->
+
+
+    <section class="contact-data">
+        <div class="container">
+            <div id="contact-bg" class="row mt-5">
+{#                {% for obj in objects %}#}
+{#                    <div class="col-lg-6">#}
+{#                    <br>#}
+{#                        <br>#}
+{#                        <br>#}
+{#                        <div class="contact-box text-center mb-5 mb-lg-0">#}
+{#                            <div class="contact-icon mb-4">#}
+{#                                <div class="course-img">#}
+{#									<img src="{{ obj.thumbnail.url }}">#}
+{#								</div>#}
+{#                                <br>#}
+{#                                <h5>{{ obj.name }}</h5>#}
+{#                            </div>#}
+{#                            <div class="course-btn">#}
+{#                                <a href="{{ obj.get_course_absolute_url }}" class="theme-btn">#}
+{#                                    <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>#}
+{#                                    <span>view course</span>#}
+{#                                </a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <br>#}
+{#                    <br>#}
+{#                    <br>#}
+{#                {% endfor %}#}
+            </div>
+            {% for obj in objects %}
+                <div id="subscribe-bg" class="row mt-3 justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="contact-box text-center mb-5 mb-lg-0">
+                        <h2 class="newsletter-card-heading mb-3">{{ obj.product_name }}</h2>
+                            <h3>{{ obj.request_in_brief }}</h3>
+                                <div class="row">
+                                    <div class="col-lg-9">
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <a class="theme-btn sub-btn"><span>View Request</span></a>
+                                    </div>
+                                 </div>
+                         </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+</section>
+{% endblock %}

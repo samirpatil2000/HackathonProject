@@ -1,0 +1,66 @@
+@media screen and (min-width:992px) and (max-width:1200px){
+	header .navbar-expand-lg .navbar-nav .nav-link {	    
+	    font-size: 12px;
+	}
+	.banner-description h1 {
+	    font-size: 30px;
+	}
+	.banner-description p {
+	    padding: 0 30px;
+	}
+	.banner-content img {
+	    width: 50%;
+	    margin: 20px 0 0;
+	}
+}
+@media screen and (max-width: 991px){
+	.mobile-menu-open {
+	    position: relative;
+	    font-size: 28px;
+	    z-index: 1;
+	    color: #6a1f74;
+	}
+	header {	    
+	    padding: 20px 0;
+	}
+	section.banner{
+		padding-bottom: 40px;
+	}
+}
+
+@media screen and (max-width: 767px){
+	section{
+	    padding:30px 0!important;
+	}
+	h1.title span {	    
+	    font-size: 16px;
+	}
+	h1.title{
+		font-size: 28px;
+	}
+	.course .owl-dots{
+		display: none;
+	}
+	.counter-wrapper{
+		margin-bottom: 30px;
+	}
+	.page-title{
+		    padding: 130px 0 100px 0!important;
+	}
+	h3.footer-links {
+	    margin: 0 0 10px;
+	}
+	[type="radio"]:not(:checked) + label ,.purchase-box .title h4, .purchase-box .value h4{
+		font-size: 16px!important;
+	}
+	h2.newsletter-card-heading.mb-3 {
+    font-size: 18px;
+    line-height: 24px;
+}
+}
+
+@media (min-width: 576px){
+#mySingup .modal-dialog {
+    max-width: 700px;
+}
+}
