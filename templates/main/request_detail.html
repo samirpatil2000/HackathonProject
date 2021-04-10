@@ -1,5 +1,8 @@
 {% extends 'main/base.html' %}
 
+{% load static %}
+{% load mptt_tags %}
+{% load crispy_forms_tags %}
 {% block style %}
   <style>
   	@media only screen and (max-width: 554px){
@@ -28,8 +31,122 @@
         <h4>{{ object.product_desc }}</h4>
         <h5>{{ object.request_in_brief }}</h5>
         <a class="btn btn-outline-primary">RESPOND</a>
+
+
     </div>
 
+            <div class="container">
+                <div class="post-comments" style="color: black">
+                      <header>
+                        <h3 class="h6">Post Comments<span class="no-of-comments">( {{ comments.count }} )</span></h3>
+                      </header>
+                      {% recursetree comments %}
+                      <div class="comment">
+                        <div class="comment-header d-flex justify-content-between">
+                          <div class="user d-flex align-items-center">
+                            <div class="image"><img src="{% static 'img/user.svg' %}" alt="..." class="img-fluid rounded-circle"></div>
+                            <div class="title"><strong>{{ node.name }}</strong><span class="date">May 2016 level[{{ node.level }}]</span></div>
+                          </div>
+                        </div>
+                        <div class="comment-body">
+                          <p id="{{ node.id }}">{{ node.content }}</p>
+                        </div>
+                          {% if node.level < 6 %}
+                             <a class="btn btn-outline-info" onclick="myFunction({{ node.id }})">Reply</a>
+                          {% endif %}
+                      </div>
+                        {% if not node.is_leaf_node %}
+                          <div class="children pl-2 pl-md-5">
+                            {{ children }}
+                          </div>
+                        {% endif %}
+                  {% endrecursetree %}
+                  {% comment %}
+                  <div class="comment">
+                    <div class="comment-header d-flex justify-content-between">
+                      <div class="user d-flex align-items-center">
+                        <div class="image"><img src="img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="title"><strong>Nikolas</strong><span class="date">May 2016</span></div>
+                      </div>
+                    </div>
+                    <div class="comment-body">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    </div>
+                  </div>
+                  <div class="comment">
+                    <div class="comment-header d-flex justify-content-between">
+                      <div class="user d-flex align-items-center">
+                        <div class="image"><img src="img/user.svg" alt="..." class="img-fluid rounded-circle"></div>
+                        <div class="title"><strong>John Doe</strong><span class="date">May 2016</span></div>
+                      </div>
+                    </div>
+                    <div class="comment-body">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    </div>
+                  </div>
+                  {% endcomment %}
+                </div>
+                <div class="add-comment" style="color: black">
+                  <header>
+                    <h3 class="h6">Leave a reply</h3>
+                  </header>
+                  <form method="POST">
+                      {% csrf_token %}
+                      <fieldset class="form-group">
+                          <legend class="'border-bottom mb-4">Comment  Form </legend>
+                         {{ comment_form | crispy  }}
+                      </fieldset>
+                      <div class="form-group">
+                          <button class="btn btn-outline-info" type="submit">Send</button>
+                      </div>
+                  </form>
+                  {% comment %}
+                  <form action="#" class="commenting-form">
+                    <div class="row">
+                      <div class="form-group col-md-6">
+                        <input type="text" name="username" id="username" placeholder="Name" class="form-control">
+                      </div>
+                      <div class="form-group col-md-6">
+                        <input type="email" name="username" id="useremail" placeholder="Email Address (will not be published)" class="form-control">
+                      </div>
+                      <div class="form-group col-md-12">
+                        <textarea name="usercomment" id="usercomment" placeholder="Type your comment" class="form-control"></textarea>
+                      </div>
+                      <div class="form-group col-md-12">
+                        <button type="submit" class="btn btn-secondary">Submit Comment</button>
+                      </div>
+                    </div>
+                  </form>
+                  {% endcomment %}
+                </div>
+            </div>
 
+    <script>
+        function formExit() {
+            document.getElementById("newForm").remove();
+        }
+        function myFunction(id) {
+           if (document.contains(document.getElementById("newForm"))) {
+             document.getElementById("newForm").remove();
+           }
+             var d1 = document.getElementById(id);
+             d1.insertAdjacentHTML('afterend',
+                  '<form id="newForm" class="form-insert" method="post"> \
+                        <div class="d-flex justify-content-between">\
+                        <h2>Reply:</h2>\
+                        <div><button type="button" class="btn btn-danger" onclick="formExit()"">Close</button></div></div> \
+                        \
+                        <option value="' + id + '" selected="' + id + '"></option> \
+                        </select> \
+                        <label for="id_content">Content:</label> \
+                        <textarea name="content" cols="40" rows="5" class="form-control" required id="id_content"></textarea> \
+                        {% csrf_token %} \
+                        <button type="submit" class="btn btn-outline-info">Submit</button> \
+                  </form>');
+
+            //document.querySelector('#id_parentt [value="' + id + '"]').selected = true;
+        }
+      $('#myForm').trigger("reset");
+      </script>
 
 {% endblock %}

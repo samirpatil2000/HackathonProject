@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
-from .forms import ProductUploadForm,CreateRequestForm,CreateGroupForm
-from .models import RequestForProduct,Product,Group,RequestForJoinGroup
+from .forms import ProductUploadForm, CreateRequestForm, CreateGroupForm, CommentForm
+from .models import RequestForProduct,Product,Group,RequestForJoinGroup,CommentTORequest
 from django.contrib import messages
 from account.models import Account
 # Create your views here.
@@ -29,8 +29,23 @@ def requestListPage(request):
     return render(request, 'main/request_list.html', context)
 
 def requestDetailView(request,id):
-    context={
-        'object':RequestForProduct.objects.get(id=id)
+    req=RequestForProduct.objects.get(id=id)
+
+    comment_form = CommentForm()
+    if request.method == 'POST':
+        comment_form = CommentForm(request.POST)
+        if comment_form.is_valid():
+            user_comment = comment_form.save(commit=False)
+            user_comment.request_for_product = req
+            user_comment.user=request.user
+            user_comment.save()
+            return redirect('request-detail', id=id)
+
+    comments = CommentTORequest.objects.filter(request_for_product__id=id)
+    context = {
+        'object': req,
+        'comments': comments,
+        'comment_form':comment_form
     }
     return render(request,'main/request_detail.html',context)
 

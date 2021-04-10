@@ -5,6 +5,7 @@ from django.db import models
 from django.conf import settings
 # Create your models here.
 from django.urls import reverse
+from mptt.models import MPTTModel,TreeForeignKey
 
 user=settings.AUTH_USER_MODEL
 
@@ -98,5 +99,20 @@ class RequestForProduct(models.Model):
     def get_request_absolute_url(self):
         return reverse('request-detail',kwargs={'id':self.id})
 
+
+class CommentTORequest(MPTTModel):
+    request_for_product=models.ForeignKey(RequestForProduct,on_delete=models.CASCADE)
+    parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+    user = models.ForeignKey(user, on_delete=models.CASCADE)
+    content = models.TextField(default="This is the comment")
+    publish = models.DateTimeField(auto_now_add=True)
+    status = models.BooleanField(default=True)
+
+
+    class MPTTMeta:
+        order_insertion_by = ['publish']
+
+    def __str__(self):
+        return f'comment on {self.request_for_product.product_name}'
 
 
