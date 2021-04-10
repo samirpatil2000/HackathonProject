@@ -1,0 +1,19 @@
+{% extends 'account/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Get Set Greenary / Upload Product{% endblock %}
+{% block body %}
+
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <legend class="'border-bottom mb-4">Upload Product</legend>
+           {{ form | crispy  }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-info" type="submit">Upload Product</button>
+        </div>
+    </form>
+</div>
+
+{% endblock body %}
