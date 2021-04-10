@@ -24,8 +24,8 @@
                 {% for obj in requests %}
                     <div class="row">
                         <h3>{{ obj.user }}</h3>
-                        <a class="btn btn-outline-info">Accept</a>
-                        <a class="btn btn-outline-info">Cancel</a>
+                        <a href="{% url 'accept_request_for_joining_group' obj.user.username %}" class="btn btn-outline-info">Accept</a>
+                        <a href="{% url 'cancel_group_joining_request_by_admin' obj.user.username %}" class="btn btn-outline-info">Cancel</a>
                     </div>
                 {% empty %}
                     <h3>You Don't Have Any Request</h3>

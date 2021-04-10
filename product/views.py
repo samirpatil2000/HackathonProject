@@ -138,7 +138,7 @@ def view_send_request_to_group(request):
     user=request.user
     context={}
     try:
-        object=RequestForJoinGroup.objects.get(user=user)
+        object=RequestForJoinGroup.objects.get(user=user,is_accepted=False,is_cancelled=False)
         context['group']=object.group
         return render(request,'main/group_request.html',context)
     except ObjectDoesNotExist:
@@ -149,7 +149,9 @@ def view_send_request_to_group(request):
 def cancel_group_joining_request(request):
     user = request.user
     try:
-        RequestForJoinGroup.objects.get(user=user).delete()
+        joining_request=RequestForJoinGroup.objects.get(user=user,is_accepted=False,is_cancelled=False)
+        joining_request.is_cancelled=True
+        joining_request.save()
         messages.success(request, f"Delete request successfully")
         return redirect('index-page')
     except ObjectDoesNotExist:
@@ -165,7 +167,7 @@ def request_list_for_joining_group(request):
     try:
         if user in user_group.admins.all():
             try:
-                joining_requests=RequestForJoinGroup.objects.all().filter(group=user_group)
+                joining_requests=RequestForJoinGroup.objects.filter(group=user_group,is_accepted=False,is_cancelled=False)
             except:
                 messages.warning(request,f'There is no any joining request')
                 joining_requests = None
@@ -177,3 +179,29 @@ def request_list_for_joining_group(request):
     except:
         messages.warning(request, f"You Don't have any group")
         return redirect('index-page')
+
+
+
+#TODO Some validation required over here
+@login_required
+def accept_request_for_joining_group(request,username):
+    requested_user=Account.objects.get(username=username)
+    joining_request=RequestForJoinGroup.objects.get(user=requested_user,is_accepted=False)
+    requested_user.group=joining_request.group
+    requested_user.save()
+    joining_request.is_accepted=True
+    joining_request.save()
+    messages.success(request,f'{request.user.username } add to group')
+    return redirect('request_list_for_joining_group')
+
+@login_required
+def cancel_group_joining_request_by_admin(request,username):
+    requested_user = Account.objects.get(username=username)
+    joining_request = RequestForJoinGroup.objects.get(user=requested_user, is_accepted=False)
+    joining_request.is_cancelled=True
+    joining_request.save()
+    messages.success(request, f"Delete request successfully")
+    return redirect('request_list_for_joining_group')
+
+
+
