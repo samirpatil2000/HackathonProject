@@ -4,7 +4,7 @@
 
 Every product manufactured leads to carbon emissions.
 
-*PROBLEM STATEMENT* - Online Platform for apartment complexes, where apartment members can share products with other fellow residents(for example - screwdriver, hammer,....) residents can request items , use it and then return it back. As the platform will make it transparent on who took what things, people will have to return it.
+*PROBLEM STATEMENT* - Online Platform for apartment complexes, where apartment members can share products with other fellow residents(for example - screwdriver, hammer..) residents can request items , use it and then return it back. As the platform will make it transparent on who took what things, people will have to return it.
 
 ---
 
