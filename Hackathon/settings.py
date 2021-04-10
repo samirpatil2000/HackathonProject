@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+pas='Bluesam@123'
 # Application definition
 
 INSTALLED_APPS = [
@@ -125,3 +125,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+CRISPY_TEMPLATE_PACK='bootstrap4'
+
+
+EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER='nousername7420@gmail.com'
+EMAIL_HOST_PASSWORD=pas
