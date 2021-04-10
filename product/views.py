@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .forms import ProductUploadForm,CreateRequestForm
-from .models import RequestForProduct,Product
+from .models import RequestForProduct,Product,Group
 from django.contrib import messages
 # Create your views here.
 
@@ -15,7 +15,7 @@ def index(request):
         if not request.user.group:
             messages.warning(request,'Please Join Your Respected Group.!')
     else:
-        messages.warning(request, 'Please Kindly Register.!')
+        messages.warning(request, 'Please Kindly Log In.!')
 
     return render(request,'main/index.html',context)
 
@@ -45,6 +45,22 @@ def productListPage(request):
     }
     return render(request, 'main/product_list.html', context)
 
+empty_string = ''
+
+def is_valid_params(param):
+    return param!=empty_string and param is not None
+
+def groupListPage(request):
+
+    groups=Group.objects.all()
+
+    qs=request.GET.get('group_name')
+    if is_valid_params(qs):
+        groups=groups.filter(name__icontains=qs)
+    context = {
+        'objects': groups
+    }
+    return render(request,'main/groups.html',context)
 
 @login_required
 def uploadProduct(request):

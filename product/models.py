@@ -10,9 +10,24 @@ user=settings.AUTH_USER_MODEL
 
 
 
+class GroupAddress(models.Model):
+
+    street=models.CharField(max_length=200,blank=True,null=True,default="StreetA")
+    locality=models.CharField(max_length=200,blank=True,null=True,default="Locality A")
+    #TODO add validators here
+    Pincode=models.IntegerField(blank=True,null=True,default=401503)
+    Post=models.CharField(blank=True,null=True,max_length=150,default="POST-A")
+    District=models.CharField(max_length=200,blank=True,null=True,default="MUMBAI")
+    State=models.CharField(max_length=200,blank=True,null=True,default="MAHARASHTRA")
+
+
+
 class Group(models.Model):
+
     name=models.CharField(max_length=50)
     admins= models.ManyToManyField(user, blank=True,related_name="group_admins")
+    group_address=models.OneToOneField(GroupAddress,on_delete=models.SET_NULL,blank=True,null=True)
+
     def __str__(self):
         return str(self.name)
 

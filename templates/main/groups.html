@@ -1,0 +1,78 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block style %}
+  <style>
+  	@media only screen and (max-width: 554px){
+  	.vid-wid{
+  		width: 250px;
+  	}
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+{#    <section class="page-title">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-lg-12 pt-0 pt-lg-5">#}
+{#                    <div class="text-center pt-0 pt-lg-5">#}
+{#                        <h2 class="text-white">Requests</h2>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+
+<!-- banner -->
+
+
+    <section class="contact-data">
+        <div class="container">
+        <form>
+            <div class="form-row">
+                <div class="form-group col-8">
+                    <div class="input-group">
+                        <input class="form-control py-2 border-right-0 border" type="search" name="group_name" placeholder="Search Group Here" />
+                        <span class="input-group-append">
+                            <div class="input-group-text bg-transparent">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-info">Search</button>
+            </div>
+        </form>
+            <div id="contact-bg" class="row mt-5">
+                {% for obj in objects %}
+                    <div class="col-lg-6">
+                    <br>
+                        <br>
+                        <br>
+                        <div class="contact-box text-center mb-5 mb-lg-0">
+                            <div class="contact-icon mb-4">
+{#                                <div class="course-img">#}
+{#									<img src="{{ obj.thumbnail.url }}">#}
+{#								</div>#}
+                                <br>
+                                <br>
+                                <h5>{{ obj.name }}</h5>
+                                <h6>{{ obj.group_address }}</h6>
+                            </div>
+                            <div class="course-btn">
+                                <a href="{{ obj.get_course_absolute_url }}" class="theme-btn">
+                                    <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>
+                                    <span>view group</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                {% endfor %}
+            </div>
+        </div>
+</section>
+{% endblock %}

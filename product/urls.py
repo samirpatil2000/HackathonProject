@@ -10,4 +10,9 @@ urlpatterns = [
     path('product-page/',views.productListPage,name='product-page'),
     path('request/<id>',views.requestDetailView,name="request-detail"),
     path('product/<id>',views.productDetailView,name="product-detail"),
+    path('groups/',views.groupListPage,name='groups')
  ]
+
+
+#TODO
+# add urls to messages
