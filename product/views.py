@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from .forms import ProductUploadForm,CreateRequestForm
+from .forms import ProductUploadForm,CreateRequestForm,CreateGroupForm
 from .models import RequestForProduct,Product,Group
 from django.contrib import messages
+from account.models import Account
 # Create your views here.
 
 
@@ -94,3 +95,21 @@ def create_product_request(request):
         'form':requestForm
     }
     return render(request,'product/createRequestForm.html',context)
+
+@login_required
+def createGroup(request):
+    user=request.user
+    gpForm=CreateGroupForm()
+    if(request.method=="POST"):
+        gpForm=CreateGroupForm(request.POST or None)
+        if gpForm.is_valid():
+            gp=gpForm.save(commit=False)
+            gp.save()
+            gp.admins.add(user)
+            current_user_account=Account.objects.get(username=user.username)
+            current_user_account.group=gp
+            current_user_account.save()
+            messages.success(request,f"You successfully created group {gp.name}")
+            return redirect('index-page')
+    context={'form':gpForm}
+    return render(request,'product/create_group.html',context)

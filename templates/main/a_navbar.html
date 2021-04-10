@@ -28,7 +28,7 @@
 				<div class="col-lg-12">
 					<nav class="navbar navbar-expand-lg p-0">
 					  <a class="navbar-brand m-0 p-0" href="#">
-					  	<img src="{% static 'main/img/logo.png' %}"/>
+					  	<img style="max-width: 100px; height: 100px" src="{% static 'main/img/la.jpg' %}"/>
 {#					  	<img style="max-width: 100px; height: 100px" src="https://raw.githubusercontent.com/internyuva/internyuva/master/static/main/img/InternYuvaResized.png"/>#}
 					  </a>
 					  <div class="mobile-menu-open d-block d-lg-none" onclick="openNav()">
@@ -67,7 +67,10 @@
                                             <a style="color: red" href="{% url 'logout' %}"><span>LOGOUT</span></a>
                                           </div>
                                     </div>
-                                    <a class="nav-link theme-btn" href="{% url 'groups' %}"><span>Join Group</span></a>
+                                    {% if not request.user.group %}
+                                        <a class="nav-link theme-btn" href="{% url 'groups' %}"><span>Join Group</span></a>
+                                        <a class="nav-link theme-btn" href="{% url 'create-group' %}"><span>Create Group</span></a>
+                                    {% endif %}
                                 {% else %}
                                     <a class="nav-link theme-btn" href="{% url 'register' %}"><span>SIGN IN</span></a>
                                 {% endif %}

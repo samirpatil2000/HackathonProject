@@ -1,6 +1,6 @@
 
 from django import forms
-from .models import Product,RequestForProduct
+from .models import Product,RequestForProduct,Group
 
 class ProductUploadForm(forms.ModelForm):
 
@@ -24,3 +24,7 @@ class CreateRequestForm(forms.ModelForm):
             'needed_by',
             'return_date']
 
+class CreateGroupForm(forms.ModelForm):
+    class Meta:
+        model=Group
+        fields=['name']

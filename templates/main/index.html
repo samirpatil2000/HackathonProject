@@ -16,7 +16,7 @@
 						<a href="{% url 'request-page' %}" class="theme-btn"><span>See Requests</span></a>
 					</div>
 					<div class="col-lg-6 order-1 order-lg-2 pb-5 pb-lg-0">
-						<img src="{% static 'main/img/banner-img.png' %}" class="w-100">
+						<img src="{% static 'main/img/banner-02.jpg' %}" class="w-100">
 					</div>
 				</div>
 			</div>
@@ -24,65 +24,6 @@
 	</div>
 </section>
 
-<section>
-	<div class="container-fluid">
-		<div class="row align-items-center">
-			<div class="col-lg-12 mb-4 text-center">
-				<h1 class="title text-black">
-
-				</h1>
-				<p class="text-black-50">Not just traditional analytics, but also uncover your blind spots and take smarter decisions</p>
-			</div>
-		</div>
-		
-		<div class="row">
-			<div class="col-md-12">
-				<div class="course">
-					<div class="owl-carousel owl-theme">
-						<!--  -->
-                        {% for course in courses %}
-					        <div class="item">
-					    	<div class="feature-box mb-5">
-								<div class="course-img">
-									<img src="{{ course.thumbnail.url }}">
-								</div>
-								<div class="course-desc">
-									<div class="fea-content">
-										<div class="title mb-2">
-											<span class="fea-title"><a href="#">{{ course.name }}</a></span>
-											<span class="like-btn"><i class="fal fa-heart font-weight-bold" aria-hidden="true"></i></span>
-										</div>
-										<div class="instructor row align-items-center mt-2">
-											<div class="col-8 pr-0">
-												<div class="d-flex align-items-center">
-													<div class="mr-2">
-														<img src="{{ course.faculty.user.profile_pic.url }}">
-													</div>
-													<div><span class="name">{{ course.faculty.user.first_name }} {{ course.faculty.user.last_name }}</span></div>
-												</div>
-											</div>
-											<div class="col-4 text-right">
-												<span class="rate"><i class="far fa-rupee-sign"></i>{{ course.price | floatformat }}</span>
-											</div>
-										</div>
-										<div class="courses-data mt-3">
-											<p>{{ course.small_desc }}</p>
-											<div class="course-btn">
-												<a href="{{ course.get_course_absolute_url }}" class="theme-btn"><i class="fas fa-play-circle mr-2" aria-hidden="true"></i> <span>view course</span></a>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-					    </div>
-                        {% endfor %}
-					    <!--  -->
-                        </div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 
 <section>
 	<div class="container-fluid">
