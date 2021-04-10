@@ -61,6 +61,9 @@ class Account(AbstractBaseUser):
 	REQUIRED_FIELDS = ['username']  # other than email
 
 
+	# profile_pic=models.ImageField(upload_to='profile_pics',blank=True,null=True)
+
+
 	objects= MyAccountManager()
 
 	def __str__(self):

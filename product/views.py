@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .forms import ProductUploadForm,CreateRequestForm
-from .models import RequestForProduct
+from .models import RequestForProduct,Product
 # Create your views here.
 
 
@@ -18,6 +18,18 @@ def requestListPage(request):
         'objects': RequestForProduct.objects.filter(is_submitted=False)
     }
     return render(request, 'main/request_list.html', context)
+
+def requestDetailView(request,id):
+    context={
+        'object':RequestForProduct.objects.get(id=id)
+    }
+    return render(request,'main/request_detail.html',context)
+
+def productDetailView(request,id):
+    context={
+        'object':Product.objects.get(id=id)
+    }
+    return render(request,'main/product_detail.html',context)
 
 @login_required
 def uploadProduct(request):

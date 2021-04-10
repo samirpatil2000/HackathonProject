@@ -1,5 +1,5 @@
 {% extends 'main/base.html' %}
-
+{% load static %}
 {% block style %}
   <style>
   	@media only screen and (max-width: 554px){
@@ -12,17 +12,17 @@
 
 {% block content %}
 
-    <section class="page-title">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 pt-0 pt-lg-5">
-                    <div class="text-center pt-0 pt-lg-5">
-                        <h2 class="text-white">Requests</h2>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+{#    <section class="page-title">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-lg-12 pt-0 pt-lg-5">#}
+{#                    <div class="text-center pt-0 pt-lg-5">#}
+{#                        <h2 class="text-white">Requests</h2>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
 
 <!-- banner -->
 
@@ -66,8 +66,20 @@
                                     <div class="col-lg-9">
                                     </div>
                                     <div class="col-lg-3">
-                                        <a class="theme-btn sub-btn"><span>View Request</span></a>
+                                        <a href="{{ obj.get_request_absolute_url }}" class="theme-btn sub-btn"><span>View Request</span></a>
                                     </div>
+                                        <div class="instructor row align-items-center mt-2">
+                                            <div class="col-8 pr-0">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="mr-2">
+                                                        <img src="{% static 'main/img/about1.jpg' %}">
+                                                    </div>
+                                                    <div class="col">
+                                                        <span class="name">{{ obj.user.first_name }} {{ obj.user.last_name }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                  </div>
                          </div>
                     </div>

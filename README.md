@@ -27,6 +27,8 @@ A user can share products for a particular period of time. Any resident who requ
 8. If any resident has that product and can lend him/her, then they can 'Respond to that request'.
 9. 
 
+#### Tech Stacks
+##### 1. Django
 
 #### Contributors
 

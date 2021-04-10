@@ -4,6 +4,7 @@ from django.db import models
 from django.db import models
 from django.conf import settings
 # Create your models here.
+from django.urls import reverse
 
 user=settings.AUTH_USER_MODEL
 
@@ -23,10 +24,13 @@ class Product(models.Model):
     category=models.ForeignKey(Category,on_delete=models.SET_NULL,blank=True,null=True)
     is_borrowed=models.BooleanField(default=False)
     is_on_rent=models.BooleanField(default=False)
+    thumbnail=models.ImageField(upload_to='product_images',blank=True,null=True)
 
     def __str__(self):
         return str(self.name)+str(self.user.name)
 
+    def get_product_absolute_url(self):
+        return reverse('product-detail',kwargs={'id':self.id})
 
 class RequestForProduct(models.Model):
 
@@ -42,6 +46,9 @@ class RequestForProduct(models.Model):
 
     def __str__(self):
         return str(self.user)+str(self.product_name)
+
+    def get_request_absolute_url(self):
+        return reverse('request-detail',kwargs={'id':self.id})
 
 
 
