@@ -27,7 +27,7 @@ class Product(models.Model):
     thumbnail=models.ImageField(upload_to='product_images',blank=True,null=True)
 
     def __str__(self):
-        return str(self.name)+str(self.user.name)
+        return str(self.name)+" "+str(self.user.username)
 
     def get_product_absolute_url(self):
         return reverse('product-detail',kwargs={'id':self.id})

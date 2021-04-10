@@ -31,6 +31,14 @@ def productDetailView(request,id):
     }
     return render(request,'main/product_detail.html',context)
 
+
+def productListPage(request):
+    context = {
+        'objects': Product.objects.all()
+    }
+    return render(request, 'main/product_list.html', context)
+
+
 @login_required
 def uploadProduct(request):
     user=request.user

@@ -23,30 +23,6 @@
 
 <!-- header -->
 <header>
-		<div class="top-bar d-none d-lg-block">
-			<div class="container">
-				<div class="row">
-				<div class="col-md-6">
-					<div class="social-links p-0">
-		                <ul class="d-flex m-0 p-0 justify-content-start">
-		                  <li><a href="tel:12 3456 7890" style="color:black"><i class="fas fa-phone-alt mr-1"></i> + 12 3456 7890 </a></li>
-		                  <li><a href="mailto:info@learning.com" style="color:black"><i class="fas fa-envelope mr-1"></i> info@learning.com</a></li>
-		                </ul>
-		            </div>
-				</div>
-				<div class="col-md-6">
-					<div class="social-links p-0">
-		                <ul class="d-flex m-0 justify-content-end">
-		                  <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-		                  <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
-		                  <li><a href="#" target="_blank"><i class="fab fa-skype"></i></a></li>
-		                  <li><a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
-		                </ul>
-		              </div>
-				</div>
-				</div>
-			</div>
-		</div>
 		<div class="container">
 			<div class="row mt-0 mt-lg-2">
 				<div class="col-lg-12">
@@ -67,7 +43,7 @@
 					        <a class="nav-link" href="{% url 'request-page' %}">REQUESTS</a>
 					      </li>
                             <li class="nav-item">
-					        <a class="nav-link" href="#">PRODUCTS</a>
+					        <a class="nav-link" href="{% url 'product-page' %}">PRODUCTS</a>
 					      </li>
                             <li class="nav-item">
 					        <a class="nav-link" href="#">PRODUCTS ON RENT</a>
