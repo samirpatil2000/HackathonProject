@@ -284,7 +284,7 @@ def accept_request_for_joining_group(request,username):
     requested_user.save()
     joining_request.is_accepted=True
     joining_request.save()
-    messages.success(request,f'{request.user.username } add to group')
+    messages.success(request,f'{request.requested_user.username } add to group')
     return redirect('request_list_for_joining_group')
 
 @login_required
