@@ -63,7 +63,8 @@
                                          </li>
                                           <div class="dropdown-content">
                                             <a href="#">{{ request.user.email }}</a>
-                                            <a href="{% url 'view_send_joining_request' %}">SEND REQUEST</a>
+                                            <a href="{% url 'view_send_joining_request' %}">JOINING REQUEST</a>
+                                            <a href="{% url 'request-page-user' %}">YOUR REQUEST</a>
                                             <a href="#">BORROWED History</a>
                                             <a style="color: red" href="{% url 'logout' %}"><span>LOGOUT</span></a>
                                           </div>

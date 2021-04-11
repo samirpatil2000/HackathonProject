@@ -56,6 +56,7 @@
 {#                    <br>#}
 {#                {% endfor %}#}
             </div>
+        <h2 style="color: black">Your send request</h2>
             {% for obj in objects %}
                 <div id="subscribe-bg" class="row mt-3 justify-content-center">
                     <div class="col-lg-8">
@@ -66,7 +67,7 @@
                                     <div class="col-lg-9">
                                     </div>
                                     <div class="col-lg-3">
-                                        <a href="{{ obj.get_request_absolute_url }}" class="theme-btn sub-btn"><span>View Request</span></a>
+                                        <a href="{% url 'respond-to-request-detailview' obj.id %}" class="theme-btn sub-btn"><span>View Responds to your request</span></a>
                                     </div>
                                         <div class="instructor row align-items-center mt-2">
                                             <div class="col-8 pr-0">

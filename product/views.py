@@ -40,8 +40,46 @@ def requestListPage(request):
         messages.warning(request, "Please join a group or create instead")
         return redirect('index-page')
 
+
+@login_required
+def requestListPageUSER(request):
+    user = request.user
+    account = Account.objects.get(username=user.username)
+    try:
+        group = account.group
+        try:
+            request_=RequestForProduct.objects.all().filter(is_submitted=False,group=group,user=user)
+            context = {
+                'objects': request_
+            }
+            return render(request, 'main/request_list__user.html', context)
+        except ObjectDoesNotExist:
+            messages.warning(request, f"{group.name} hase not current active request")
+            return redirect('index-page')
+    except:
+        messages.warning(request, "Please join a group or create instead")
+        return redirect('index-page')
+
+
+@login_required
+def respond_to_requestDetailView(request,request_id):
+    req=RequestForProduct.objects.get(id=request_id)
+    responds=RespondToRequest.objects.all().filter(request_for_product=req)
+    user=request.user
+    context = {
+        'objects': responds,
+    }
+    return render(request,'main/request_list__user_respond.html',context)
+
+@login_required
 def requestDetailView(request,id):
     req=RequestForProduct.objects.get(id=id)
+    user=request.user
+    respond_input = request.GET.get('respond_input')
+    if is_valid_params(respond_input):
+        current_request = RespondToRequest.objects.create(user=user, request_for_product=req,
+                                                          message=respond_input)
+        messages.success(request, "Your respond sent successfully ")
 
     comment_form = CommentForm()
     if request.method == 'POST':
@@ -259,7 +297,13 @@ def cancel_group_joining_request_by_admin(request,username):
 @login_required
 def respondToRequest(request,request_id):
     user=request.user
-    current_request=RespondToRequest.objects.create(user=user,request_for_product__id=request_id)
+    respond_input=request.GET.get('respond_input')
+    if is_valid_params(respond_input):
+        current_request=RespondToRequest.objects.create(user=user,request_for_product__id=request_id,message=respond_input)
+        messages.success(request,"Your respond sent successfully ")
+        # return redirect('respond-to-request',request_id)
+
+        return render(request,'main/request_detail.html')
 
 
 

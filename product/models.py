@@ -8,6 +8,7 @@ from django.urls import reverse
 from mptt.models import MPTTModel,TreeForeignKey
 
 from django.utils import timezone
+import random
 user=settings.AUTH_USER_MODEL
 
 
@@ -94,13 +95,14 @@ TIMES=(
     (15,15),
 )
 
-
+product_list=['hammer','hpenvy-234 charger','screw driver','drilling machine','machine','mechanical drive']
+x=product_list[random.randint(0,len(product_list)-1)]
 class RequestForProduct(models.Model):
 
     user = models.ForeignKey(user, on_delete=models.CASCADE)
-    product_name = models.CharField(default="Hammer", max_length=20)
-    product_desc = models.TextField(default="This is the hammer")
-    request_in_brief=models.TextField(default="I need a hammer for something")
+    product_name = models.CharField(default=x, max_length=50)
+    product_desc = models.TextField(default=f"This is the {x}",blank=True,null=True)
+    request_in_brief=models.TextField(default=f"I need a {x} for something",blank=True,null=True,)
     product_category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
     is_urgent= models.BooleanField(default=False)
     date_needed_by=models.DateTimeField(default=timezone.now(),blank=True,null=True,help_text="Format 2021-04-11 04:08:08")
@@ -118,7 +120,8 @@ class RequestForProduct(models.Model):
 
 class RespondToRequest(models.Model):
     user=models.ForeignKey(user,on_delete=models.CASCADE)
-    request_for_product = models.ForeignKey(RequestForProduct, on_delete=models.CASCADE)
+    request_for_product = models.OneToOneField(RequestForProduct, on_delete=models.CASCADE)
+    message=models.CharField(max_length=200,default="I have this one")
 
 
     def __str__(self):

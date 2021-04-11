@@ -1,0 +1,98 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block style %}
+  <style>
+  	@media only screen and (max-width: 554px){
+  	.vid-wid{
+  		width: 250px;
+  	}
+  }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+{#    <section class="page-title">#}
+{#        <div class="container">#}
+{#            <div class="row">#}
+{#                <div class="col-lg-12 pt-0 pt-lg-5">#}
+{#                    <div class="text-center pt-0 pt-lg-5">#}
+{#                        <h2 class="text-white">Requests</h2>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+
+<!-- banner -->
+
+
+    <section class="contact-data">
+        <div class="container" style="color: black">
+            <div id="contact-bg" class="row mt-5">
+{#                {% for obj in objects %}#}
+{#                    <div class="col-lg-6">#}
+{#                    <br>#}
+{#                        <br>#}
+{#                        <br>#}
+{#                        <div class="contact-box text-center mb-5 mb-lg-0">#}
+{#                            <div class="contact-icon mb-4">#}
+{#                                <div class="course-img">#}
+{#									<img src="{{ obj.thumbnail.url }}">#}
+{#								</div>#}
+{#                                <br>#}
+{#                                <h5>{{ obj.name }}</h5>#}
+{#                            </div>#}
+{#                            <div class="course-btn">#}
+{#                                <a href="{{ obj.get_course_absolute_url }}" class="theme-btn">#}
+{#                                    <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>#}
+{#                                    <span>view course</span>#}
+{#                                </a>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <br>#}
+{#                    <br>#}
+{#                    <br>#}
+{#                {% endfor %}#}
+            </div>
+        <h2 style="color: black">Your respond to your request </h2>
+            {% for obj in objects %}
+                <h2>{{ forloop.counter }} ]</h2>
+                <h2 style="color: black"> {{ obj.user }} <a href="#" class="btn btn-outline-info">Call</a></h2>
+                <h4 style="color: black">{{ obj.message }}</h4>
+
+{#                <div id="subscribe-bg" class="row mt-3 justify-content-center">#}
+{#                    <div class="col-lg-8">#}
+{#                        <div class="contact-box text-center mb-5 mb-lg-0">#}
+{#                        <h2 class="newsletter-card-heading mb-3">{{ obj.product_name }}</h2>#}
+{#                            <h3>{{ obj.request_in_brief }}</h3>#}
+{#                                <div class="row">#}
+{#                                    <div class="col-lg-9">#}
+{#                                    </div>#}
+{#                                    <div class="col-lg-3">#}
+{#                                        <a href="{{ obj.get_request_absolute_url }}" class="theme-btn sub-btn"><span>View Respond to your request</span></a>#}
+{#                                    </div>#}
+{#                                        <div class="instructor row align-items-center mt-2">#}
+{#                                            <div class="col-8 pr-0">#}
+{#                                                <div class="d-flex align-items-center">#}
+{#                                                    <div class="mr-2">#}
+{#                                                        <img src="{% static 'main/img/about1.jpg' %}">#}
+{#                                                    </div>#}
+{#                                                    <div class="col">#}
+{#                                                        <span class="name">{{ obj.user.first_name }} {{ obj.user.last_name }}</span>#}
+{#                                                    </div>#}
+{#                                                </div>#}
+{#                                            </div>#}
+{#                                        </div>#}
+{#                                 </div>#}
+{#                         </div>#}
+{#                    </div>#}
+{#                </div>#}
+                {% empty %}
+                    <h3 style="color: black">Your Group does not active respond</h3>
+                {% endfor %}
+
+        </div>
+</section>
+{% endblock %}

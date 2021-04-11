@@ -30,7 +30,23 @@
         <h2>{{ object.product_name }}</h2>
         <h4>{{ object.product_desc }}</h4>
         <h5>{{ object.request_in_brief }}</h5>
-        <a class="btn btn-outline-primary">RESPOND</a>
+        <form>
+            <div class="form col-4">
+                <div class="form-group center">
+                    <div class="input-group">
+                        <input class="form-control py-2 border-right-0 border" style="border: black" type="search" name="respond_input" placeholder="I have this one" />
+                        <span class="input-group-append">
+                            <div classss="input-group-text bg-transparent">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </span>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-outline-info">RESPOND</button>
+            </div>
+            <br>
+            <br>
+        </form>
 
 
     </div>
