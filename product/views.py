@@ -82,7 +82,7 @@ def requestDetailView(request,id):
                                                               message=respond_input)
             messages.success(request, "Your respond sent successfully ")
     except:
-        messages.success(request, "Your respond sent successfully ")
+        messages.warning(request, "You Already send response you it ")
         return redirect('request-detail',id)
 
 
