@@ -44,8 +44,7 @@ A user can share products for a particular period of time. Any resident who requ
 
 Code samples from the Django tutorial series.
 
-![Django Boards Screenshot](https://d26dzxoao6i3hh.cloudfront.net/items/0j1J2s300f1b2y1Y3p3k/django-boards.png?v=3ec9d7f5)
-
+![Django Boards Screenshot]()
 
 
 ## THE webite is live on 
