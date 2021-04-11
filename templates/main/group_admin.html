@@ -43,6 +43,18 @@
                         <h3>You Don't Have Any Request</h3>
                     {% endfor %}
                 {% endif %}
+        <br>
+        <br>
+                <h3>Members</h3>
+                {% for obj in users %}
+                    <div class="row">
+                            <h3 style="color: black">{{ forloop.counter }} ] {{ obj.email }}</h3>
+{#                            <a href="{% url 'accept_request_for_joining_group' obj.user.username %}" class="btn btn-outline-info">Accept</a>#}
+{#                            <a href="{% url 'cancel_group_joining_request_by_admin' obj.user.username %}" class="btn btn-outline-info">Cancel</a>#}
+                    </div>
+                {% empty %}
+                    <h3 style="color: black">No Members</h3>
+                {% endfor %}
 
         </div>
 {#    </section>#}

@@ -257,7 +257,9 @@ def request_list_for_joining_group(request):
         if user in user_group.admins.all():
             context = {
                 'group': user_group,
+                'users': Account.objects.filter(group=user_group),
             }
+            print(context['users'])
             try:
                 joining_requests=RequestForJoinGroup.objects.filter(group=user_group,is_accepted=False,is_cancelled=False)
                 context['requests']=joining_requests
@@ -307,3 +309,20 @@ def respondToRequest(request,request_id):
 
 
 
+@login_required
+def groupMembers(request):
+    user=request.user
+    user = request.user
+    current_user = Account.objects.get(username=user.username)
+    user_group = current_user.group
+    try:
+        if user in user_group.admins.all():
+            context = {
+                'users':Account.objects.filter(group=user_group),
+            }
+        else:
+            context = {'group': user_group, 'message': "You are not admin"}
+        return render(request, 'main/group_admin.html', context)
+    except:
+        messages.warning(request, f"You Don't have any group")
+        return redirect('index-page')
