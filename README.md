@@ -90,7 +90,7 @@ The project will be available at **127.0.0.1:8000**.
 
 #### Contributors
 
-1. Samir Patil
+1. [! [Samir Patil](https://github.com/samirpatil2000)
 2. Srishti Sharma
 3. Ashish Kumar
 4. Nitin Chiliveri
