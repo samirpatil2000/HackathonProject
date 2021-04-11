@@ -1,4 +1,3 @@
-![23](https://user-images.githubusercontent.com/80915437/114296922-6ea0c280-9acb-11eb-8fa6-f6b156654bb4.png)
 # HackathonProject
 
 **C3P4** 
@@ -105,20 +104,7 @@ The project will be available at **127.0.0.1:8000**.
 [Back to the top](#HackathonProject)
 
 
-![Uploading 23.png…]()
-  
-![Hnet com-image](https://user-images.githubusercontent.com/80915437/114296873-297c9080-9acb-11eb-99ae-069f75ffaf05.png)
+![23](https://user-images.githubusercontent.com/80915437/114296922-6ea0c280-9acb-11eb-8fa6-f6b156654bb4.png)
+![33](https://user-images.githubusercontent.com/80915437/114297795-639c6100-9ad0-11eb-8c6e-4b722442c829.png)
 
-
-
-![1](https://user-images.githubusercontent.com/80915437/114296552-9ee76180-9ac9-11eb-8a86-95babd144f0d.png)
-![2](https://user-images.githubusercontent.com/80915437/114296554-a0188e80-9ac9-11eb-9780-fa4947ad3a24.png)
-![3](https://user-images.githubusercontent.com/80915437/114296555-a0b12500-9ac9-11eb-8e88-77838c33b0bd.png)
-![4](https://user-images.githubusercontent.com/80915437/114296542-8d05be80-9ac9-11eb-8203-5d8a694609b6.png)
-![5](https://user-images.githubusercontent.com/80915437/114296543-8e36eb80-9ac9-11eb-8793-eb4d07213c69.png)
-![6](https://user-images.githubusercontent.com/80915437/114296544-8e36eb80-9ac9-11eb-81a5-62b885767e14.png)
-![7](https://user-images.githubusercontent.com/80915437/114296545-8ecf8200-9ac9-11eb-9b30-3b9ac4b42494.png)
-![8](https://user-images.githubusercontent.com/80915437/114296535-82e3c000-9ac9-11eb-8867-96820f52e8a5.png)
-![9](https://user-images.githubusercontent.com/80915437/114296537-8414ed00-9ac9-11eb-9893-c4044536ae19.png)
-![10](https://user-images.githubusercontent.com/80915437/114296538-84ad8380-9ac9-11eb-8b63-c43c08d490b2.png)
 
