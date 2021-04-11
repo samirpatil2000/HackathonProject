@@ -114,4 +114,3 @@ The project will be available at **127.0.0.1:8000**.
 7. ![Screenshot 2021-04-11 at 2 22 39 PM](https://user-images.githubusercontent.com/80915437/114298202-d73f6d80-9ad2-11eb-9cc5-e34a777a0fc4.png)
 8. ![afterlogin](https://user-images.githubusercontent.com/80915437/114298203-d7d80400-9ad2-11eb-9d04-b09d2363024a.png)
 9. ![search_group](https://user-images.githubusercontent.com/80915437/114298204-d7d80400-9ad2-11eb-9348-3e24f0df3d9c.png)
-
