@@ -35,12 +35,13 @@ A user can share products for a particular period of time. Any resident who requ
  [Back to the top](#HackathonProject)
 
 
-#### Tech Stacks
-##### 1. Django
+### Tech Stacks
+#### Python,Django
+
 # Installation to our django project
 
-[![Python Version](https://img.shields.io/badge/python-3.6-brightgreen.svg)](https://python.org)
-[![Django Version](https://img.shields.io/badge/django-1.11-brightgreen.svg)](https://djangoproject.com)
+[![Python Version](https://img.shields.io/badge/python-3.8-brightgreen.svg)](https://python.org)
+[![Django Version](https://img.shields.io/badge/django-3.1-brightgreen.svg)](https://djangoproject.com)
 
 Code samples from the Django tutorial series.
 
