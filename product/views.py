@@ -257,7 +257,7 @@ def request_list_for_joining_group(request):
         if user in user_group.admins.all():
             context = {
                 'group': user_group,
-                'users': Account.objects.filter(group=user_group),
+                'users': Account.objects.filter(group=user_group)
             }
             print(context['users'])
             try:
@@ -267,7 +267,7 @@ def request_list_for_joining_group(request):
                 messages.warning(request,f'There is no any joining request')
             return render(request,'main/group_admin.html',context)
         else:
-            context={'group':user_group,'message':"You are not admin"}
+            context={'group':user_group,'message':"You are not admin",'users': Account.objects.filter(group=user_group)}
         return render(request, 'main/group_admin.html', context)
     except:
         messages.warning(request, f"You Don't have any group")
