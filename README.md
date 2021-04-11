@@ -4,7 +4,7 @@
 
 Every product manufactured leads to carbon emissions.
 
-*PROBLEM STATEMENT* - Online Platform for apartment complexes, where apartment members can share products with other fellow residents(for example - screwdriver, hammer..) residents can request items , use it and then return it back. As the platform will make it transparent on who took what things, people will have to return it.
+*PROBLEM STATEMENT*  - Online Platform for apartment complexes, where apartment members can share products with other fellow residents(for example - screwdriver, hammer..) residents can request items , use it and then return it back. As the platform will make it transparent on who took what things, people will have to return it.
 
 ---
 
@@ -30,8 +30,10 @@ A user can share products for a particular period of time. Any resident who requ
 11. The user can himself **create** a group for his society and add members of the society.
 12. There is a comment section available below the request for any queries, for the interaction of members.
 13. As soon as the **request is accepted** the users can contact each other through phone number.
-14. The admins can **add** memberes, or **delete** members.
-15. The user requesting the product have to mention when he want he product and when will he return it.
+14. Also, **only the specific members of that group can see the requests which is made by the member of the same group**. The request of a group is not visible to other members of group.
+15. If any user reponds to the request of a member, then this data is availbale and users can view this in the section - **'your requests' and 'borrowed history'**.
+16. The admins can **add** memberes, or **delete** members.
+17. The user requesting the product have to mention when he want he product and when will he return it.
 
  [Back to the top](#HackathonProject)
 
