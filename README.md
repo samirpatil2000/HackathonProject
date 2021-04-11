@@ -37,7 +37,7 @@ A user can share products for a particular period of time. Any resident who requ
 
 #### Tech Stacks
 ##### 1. Django
-# A Complete Beginner's Guide to Django
+# Installation to our django project
 
 [![Python Version](https://img.shields.io/badge/python-3.6-brightgreen.svg)](https://python.org)
 [![Django Version](https://img.shields.io/badge/django-1.11-brightgreen.svg)](https://djangoproject.com)
@@ -48,7 +48,8 @@ Code samples from the Django tutorial series.
 
 
 
-### The website is live on [click here](http://myfirstonlineproject.pythonanywhere.com/).
+## THE webite is live on 
+### http://myfirstonlineproject.pythonanywhere.com/
 
 
 ## Running the Project Locally
