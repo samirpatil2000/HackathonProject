@@ -21,12 +21,24 @@ def index(request):
 
     return render(request,'main/index.html',context)
 
-
+@login_required
 def requestListPage(request):
-    context = {
-        'objects': RequestForProduct.objects.filter(is_submitted=False)
-    }
-    return render(request, 'main/request_list.html', context)
+    user = request.user
+    account = Account.objects.get(username=user.username)
+    try:
+        group = account.group
+        try:
+            request_=RequestForProduct.objects.all().filter(is_submitted=False,group=group)
+            context = {
+                'objects': request_
+            }
+            return render(request, 'main/request_list.html', context)
+        except ObjectDoesNotExist:
+            messages.warning(request, f"{group.name} hase not current active request")
+            return redirect('index-page')
+    except:
+        messages.warning(request, "Please join a group or create instead")
+        return redirect('index-page')
 
 def requestDetailView(request,id):
     req=RequestForProduct.objects.get(id=id)
@@ -58,10 +70,19 @@ def productDetailView(request,id):
 
 @login_required
 def productListPage(request):
-    context = {
-        'objects': Product.objects.all()
-    }
-    return render(request, 'main/product_list.html', context)
+    user=request.user
+    account = Account.objects.get(username=user.username)
+    try:
+
+        group=account.group
+        context = {
+            'objects': Product.objects.all().filter(group=group)
+        }
+        return render(request, 'main/product_list.html', context)
+    except:
+        messages.warning(request, "Please join a group or create instead")
+        return redirect('index-page')
+
 
 empty_string = ''
 
@@ -235,8 +256,10 @@ def cancel_group_joining_request_by_admin(request,username):
     messages.success(request, f"Delete request successfully")
     return redirect('request_list_for_joining_group')
 
-# @login_required
-# def respondToRequest(request,request_id):
-#     user=request.user
-#     current_request=RespondToRequest.objects.create(user=user,mes)
+@login_required
+def respondToRequest(request,request_id):
+    user=request.user
+    current_request=RespondToRequest.objects.create(user=user,request_for_product__id=request_id)
+
+
 
