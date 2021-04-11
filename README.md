@@ -47,37 +47,37 @@ Code samples from the Django tutorial series.
 ![Django Boards Screenshot]()
 
 
-## THE webite is live on 
+## THE website is live on 
 ### http://myfirstonlineproject.pythonanywhere.com/
 
 
 ## Running the Project Locally
 
-First, clone the repository to your local machine:
+* First, clone the repository to your local machine:
 
 ```bash
 https://github.com/samirpatil2000/HackathonProject.git
 ```
 
-Install the requirements:
+* Install the requirements:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Setup the local configurations:
+* Setup the local configurations:
 
 ```bash
 cp .env.example .env
 ```
 
-Create the database:
+* Create the database:
 
 ```bash
 python manage.py migrate
 ```
 
-Finally, run the development server:
+* Finally, run the development server:
 
 ```bash
 python manage.py runserver
