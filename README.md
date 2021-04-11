@@ -10,7 +10,7 @@ Every product manufactured leads to carbon emissions.
 
 ## SOLUTION
 
-Presenting the "STAY TOGETHER, GROW TOGETHER" - an onlinne interactive platform.
+Presenting the "STAY TOGETHER, GROW TOGETHER" - an online interactive platform.
 
 A platform where we believe that _Sharing leads to a greener world._
 A user can share products for a particular period of time. Any resident who requires a product can make request by providing the detail of the product. Al the registered users will receive a notification of the request made. If any resident member has that requested equipment and if they agree to share their equipment, they can click on the check box and notify that they can share that product. The user who had made request can now approach the resident and take the product, use it and then return to the owner. In this way without using the multiple products, residents can manage to do their work and with less demand, less products will be manufactured, which in turn lead to less carbon emission. 
