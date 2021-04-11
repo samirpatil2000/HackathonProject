@@ -75,11 +75,16 @@ def respond_to_requestDetailView(request,request_id):
 def requestDetailView(request,id):
     req=RequestForProduct.objects.get(id=id)
     user=request.user
-    respond_input = request.GET.get('respond_input')
-    if is_valid_params(respond_input):
-        current_request = RespondToRequest.objects.create(user=user, request_for_product=req,
-                                                          message=respond_input)
+    try:
+        respond_input = request.GET.get('respond_input')
+        if is_valid_params(respond_input):
+            current_request = RespondToRequest.objects.create(user=user, request_for_product=req,
+                                                              message=respond_input)
+            messages.success(request, "Your respond sent successfully ")
+    except:
         messages.success(request, "Your respond sent successfully ")
+        return redirect('You already made request')
+
 
     comment_form = CommentForm()
     if request.method == 'POST':
