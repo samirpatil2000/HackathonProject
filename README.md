@@ -30,6 +30,8 @@ A user can share products for a particular period of time. Any resident who requ
 11. The user can himself create a group for his society and add members of the society.
 12. There is a comment section available below the request for any queries.
 13. As soon as the request is accepted the users can contact each other through phone number.
+14. The user requesting the product have to mention when he want he product and when will he return it.
+
  
 
 #### Tech Stacks
