@@ -53,7 +53,7 @@ A user can share products for a particular period of time. Any resident who requ
 * First, clone the repository to your local machine:
 
 ```bash
-https://github.com/samirpatil2000/HackathonProject.git
+git clone https://github.com/samirpatil2000/HackathonProject.git
 ```
 
 * Install the requirements:
