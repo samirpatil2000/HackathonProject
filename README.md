@@ -10,7 +10,13 @@ Every product manufactured leads to carbon emissions.
 
 ## SOLUTION
 
-Presenting the "STAY TOGETHER, GROW TOGETHER" - 
+Presenting the "STAY TOGETHER, GROW TOGETHER" - an onlinne interactive platform.![4](https://user-images.githubusercontent.com/80915437/114295527-73617880-9ac3-11eb-9fad-acde4fb69e47.png)
+![5](https://user-images.githubusercontent.com/80915437/114295533-75c3d280-9ac3-11eb-9409-61074f27e0df.png)
+![6](https://user-images.githubusercontent.com/80915437/114295534-76f4ff80-9ac3-11eb-8bf0-a1ed95f2f2dd.png)
+![1](https://user-images.githubusercontent.com/80915437/114295535-778d9600-9ac3-11eb-944a-3abef44401d2.png)
+![2](https://user-images.githubusercontent.com/80915437/114295537-79575980-9ac3-11eb-9a81-84acff3f8ad3.png)
+![3](https://user-images.githubusercontent.com/80915437/114295538-79eff000-9ac3-11eb-8b01-80659031ef70.png)
+
 
 A platform where we believe that _Sharing leads to a greener world._
 A user can share products for a particular period of time. Any resident who requires a product can make request by providing the detail of the product. Al the registered users will receive a notification of the request made. If any resident member has that requested equipment and if they agree to share their equipment, they can click on the check box and notify that they can share that product. The user who had made request can now approach the resident and take the product, use it and then return to the owner. In this way without using the multiple products, residents can manage to do their work and with less demand, less products will be manufactured, which in turn lead to less carbon emission. 
