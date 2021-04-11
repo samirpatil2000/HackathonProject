@@ -23,7 +23,8 @@ class CreateRequestForm(forms.ModelForm):
             'request_in_brief',
             'product_category',
             'is_urgent',
-            'needed_by',
+            'date_needed_by',
+            'time_needed_by',
             'return_date']
 
 class CreateGroupForm(forms.ModelForm):

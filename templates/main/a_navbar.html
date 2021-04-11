@@ -62,7 +62,7 @@
                                             <a class="nav-link" href="#">PROFILE</a>
                                          </li>
                                           <div class="dropdown-content">
-                                            <a href="#">PRODUCT LIST</a>
+                                            <a href="#">{{ request.user.email }}</a>
                                             <a href="{% url 'view_send_joining_request' %}">SEND REQUEST</a>
                                             <a href="#">BORROWED History</a>
                                             <a style="color: red" href="{% url 'logout' %}"><span>LOGOUT</span></a>

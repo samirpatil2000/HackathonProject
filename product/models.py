@@ -7,6 +7,7 @@ from django.conf import settings
 from django.urls import reverse
 from mptt.models import MPTTModel,TreeForeignKey
 
+from django.utils import timezone
 user=settings.AUTH_USER_MODEL
 
 
@@ -81,6 +82,18 @@ class Product(models.Model):
     def get_product_absolute_url(self):
         return reverse('product-detail',kwargs={'id':self.id})
 
+
+TIMES=(
+
+    (1,1),
+    (2,2),
+    (3,3),
+    (4,4),
+    (7,7),
+    (15,15),
+)
+
+
 class RequestForProduct(models.Model):
 
     user = models.ForeignKey(user, on_delete=models.CASCADE)
@@ -89,8 +102,9 @@ class RequestForProduct(models.Model):
     request_in_brief=models.TextField(default="I need a hammer for something")
     product_category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
     is_urgent= models.BooleanField(default=False)
-    needed_by=models.DateTimeField(blank=True,null=True)
-    return_date=models.DateTimeField(blank=True,null=True)
+    date_needed_by=models.DateTimeField(default=timezone.now(),blank=True,null=True)
+    time_needed_by=models.IntegerField(choices=TIMES,blank=True,null=True)
+    return_date=models.DateTimeField(default=timezone.now(),blank=True,null=True)
     is_submitted=models.BooleanField(default=False)
 
     def __str__(self):
@@ -98,6 +112,15 @@ class RequestForProduct(models.Model):
 
     def get_request_absolute_url(self):
         return reverse('request-detail',kwargs={'id':self.id})
+
+
+class RespondToRequest(models.Model):
+    user=models.ForeignKey(user,on_delete=models.CASCADE)
+    request_for_product = models.ForeignKey(RequestForProduct, on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return f"{self.user.username} {self.request_for_product.product_name}"
 
 
 class CommentTORequest(MPTTModel):

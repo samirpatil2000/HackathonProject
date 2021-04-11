@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render, redirect
 from .forms import ProductUploadForm, CreateRequestForm, CreateGroupForm, CommentForm
-from .models import RequestForProduct,Product,Group,RequestForJoinGroup,CommentTORequest
+from .models import RequestForProduct,Product,Group,RequestForJoinGroup,CommentTORequest,RespondToRequest
 from django.contrib import messages
 from account.models import Account
 # Create your views here.
@@ -218,5 +218,8 @@ def cancel_group_joining_request_by_admin(request,username):
     messages.success(request, f"Delete request successfully")
     return redirect('request_list_for_joining_group')
 
-
+# @login_required
+# def respondToRequest(request,request_id):
+#     user=request.user
+#     current_request=RespondToRequest.objects.create(user=user,mes)
 
