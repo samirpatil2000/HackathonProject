@@ -37,6 +37,56 @@ A user can share products for a particular period of time. Any resident who requ
 
 #### Tech Stacks
 ##### 1. Django
+# A Complete Beginner's Guide to Django
+
+[![Python Version](https://img.shields.io/badge/python-3.6-brightgreen.svg)](https://python.org)
+[![Django Version](https://img.shields.io/badge/django-1.11-brightgreen.svg)](https://djangoproject.com)
+
+Code samples from the Django tutorial series.
+
+![Django Boards Screenshot](https://d26dzxoao6i3hh.cloudfront.net/items/0j1J2s300f1b2y1Y3p3k/django-boards.png?v=3ec9d7f5)
+
+
+
+### The website is live on [click here](http://myfirstonlineproject.pythonanywhere.com/).
+
+
+## Running the Project Locally
+
+First, clone the repository to your local machine:
+
+```bash
+https://github.com/samirpatil2000/HackathonProject.git
+```
+
+Install the requirements:
+
+```bash
+pip install -r requirements.txt
+```
+
+Setup the local configurations:
+
+```bash
+cp .env.example .env
+```
+
+Create the database:
+
+```bash
+python manage.py migrate
+```
+
+Finally, run the development server:
+
+```bash
+python manage.py runserver
+```
+
+The project will be available at **127.0.0.1:8000**.
+
+
+
 
 #### Contributors
 
