@@ -86,6 +86,9 @@ python manage.py runserver
 The project will be available at **127.0.0.1:8000**.
 
 
+### Security
+* Prevented From Vertical and Horizontal Previliedge Escalation
+
 
 
 #### Contributors
