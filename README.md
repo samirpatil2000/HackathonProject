@@ -18,19 +18,19 @@ A user can share products for a particular period of time. Any resident who requ
   * To use this site following are the steps, a resident member has to follow and can take the advantage of this interface thus a contributive step to control carbon emission:
 
 1. Click on the link - [Directed to the website](https://myfirstonlineproject.pythonanywhere.com/)
-2. If you are a new resident or a new user, you can click on 'Register' and then create a new acccount on our site.
+2. If you are a new resident or a new user, you can click on **'Register'** and then create a new acccount on our site.
 3. Provide the required personal information like Name, Address, Phone number etc and create a Password.
 4. Once registered, you can login.
-5. Now, if you need a product/ equipment - click on 'Make a request of product'.
+5. Now, if you need a product/ equipment - click on **'Make a request of product'**.
 6. After that you will be directed to a new page where you have to enter the details to make request.
 7. Once the request is made, all the registered residents will be notified about the request.
-8. If any resident has that product and can lend him/her, then they can 'Respond to that request'.
+8. If any resident has that product and can lend him/her, then they can **'Respond to that request'**.
 9. The user can join the group of his society by just typing the name of the society in join group option.
-10. The request will be made and the admin of the group can then accept the request.
-11. The user can himself *create* a group for his society and add members of the society.
+10. The **request will be made** and the admin of the group can then accept the request.
+11. The user can himself **create** a group for his society and add members of the society.
 12. There is a comment section available below the request for any queries, for the interaction of members.
-13. As soon as the *request is accepted* the users can contact each other through phone number.
-14. The admins can add memberes, or delete members.
+13. As soon as the **request is accepted** the users can contact each other through phone number.
+14. The admins can **add** memberes, or **delete** members.
 15. The user requesting the product have to mention when he want he product and when will he return it.
 
  [Back to the top](#HackathonProject)
