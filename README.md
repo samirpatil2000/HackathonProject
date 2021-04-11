@@ -101,5 +101,3 @@ The project will be available at **127.0.0.1:8000**.
 [Back to the top](#HackathonProject)
 
 
-
- 
