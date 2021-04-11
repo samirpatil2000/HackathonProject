@@ -17,7 +17,7 @@ A user can share products for a particular period of time. Any resident who requ
 
   * To use this site following are the steps, a resident member has to follow and can take the advantage of this interface thus a contributive step to control carbon emission:
 
-1. Click on the link - 
+1. Click on the link - [Directed to the website](https://myfirstonlineproject.pythonanywhere.com/)
 2. If you are a new resident or a new user, you can click on 'Register' and then create a new acccount on our site.
 3. Provide the required personal information like Name, Address, Phone number etc and create a Password.
 4. Once registered, you can login.
