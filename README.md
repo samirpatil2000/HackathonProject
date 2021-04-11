@@ -25,7 +25,14 @@ A user can share products for a particular period of time. Any resident who requ
 6. After that you will be directed to a new page where you have to enter the details to make request.
 7. Once the request is made, all the registered residents will be notified about the request.
 8. If any resident has that product and can lend him/her, then they can 'Respond to that request'.
-9. 
+9. The user can join the group of his society by just typing the name of the society in join group option.
+10. The request will be made and the admin of the group can then accept the request.
+11. The user can himself create a group for his society and add members of the society.
+12. There is a comment section available below the request for any queries.
+13. As soon as the request is accepted the users can contact each other through phone number.
+14. The user requesting the product have to mention when he want he product and when will he return it.
+
+ 
 
 #### Tech Stacks
 ##### 1. Django
