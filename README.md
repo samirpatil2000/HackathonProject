@@ -47,7 +47,7 @@ Code samples from the Django tutorial series.
 ![Django Boards Screenshot]()
 
 
-## THE website is live on 
+## The website is live on 
 ### http://myfirstonlineproject.pythonanywhere.com/
 
 
