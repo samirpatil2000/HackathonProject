@@ -83,7 +83,7 @@ def requestDetailView(request,id):
             messages.success(request, "Your respond sent successfully ")
     except:
         messages.success(request, "Your respond sent successfully ")
-        return redirect('You already made request')
+        return redirect('request-detail',id)
 
 
     comment_form = CommentForm()
