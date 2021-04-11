@@ -75,6 +75,7 @@ class Product(models.Model):
     is_borrowed=models.BooleanField(default=False)
     is_on_rent=models.BooleanField(default=False)
     thumbnail=models.ImageField(upload_to='product_images',blank=True,null=True)
+    group=models.ForeignKey(Group,on_delete=models.SET_NULL,blank=True,null=True)
 
     def __str__(self):
         return str(self.name)+" "+str(self.user.username)
@@ -102,10 +103,11 @@ class RequestForProduct(models.Model):
     request_in_brief=models.TextField(default="I need a hammer for something")
     product_category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
     is_urgent= models.BooleanField(default=False)
-    date_needed_by=models.DateTimeField(default=timezone.now(),blank=True,null=True)
+    date_needed_by=models.DateTimeField(default=timezone.now(),blank=True,null=True,help_text="Format 2021-04-11 04:08:08")
     time_needed_by=models.IntegerField(choices=TIMES,blank=True,null=True)
-    return_date=models.DateTimeField(default=timezone.now(),blank=True,null=True)
+    return_date=models.DateTimeField(default=timezone.now(),blank=True,null=True,help_text="Format 2021-04-11 04:08:08")
     is_submitted=models.BooleanField(default=False)
+    group=models.ForeignKey(Group,on_delete=models.SET_NULL,blank=True,null=True)
 
     def __str__(self):
         return str(self.user)+str(self.product_name)

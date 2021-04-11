@@ -18,18 +18,31 @@
                 <div class="col-lg-12 pt-0 pt-lg-5">
                     <div class="text-center pt-0 pt-lg-5">
                         <h2 class="text-black-50"> Group Name :- {{ group.name }}</h2>
+                        <h2 class="text-black-50"> Group Address </h2>
+                           <h3 class="text-black-50"> {{ group.group_address.street }},
+                                                        {{ group.group_address.locality }},
+                                                        {{ group.group_address.Pincode }},
+                                                        {{ group.group_address.Post }},
+                                                        {{ group.group_address.District }},
+                                                        {{ group.group_address.State }}</h3>
+                        <br>
+                        <br>
                     </div>
                 </div>
             </div>
-                {% for obj in requests %}
-                    <div class="row">
-                        <h3>{{ obj.user }}</h3>
-                        <a href="{% url 'accept_request_for_joining_group' obj.user.username %}" class="btn btn-outline-info">Accept</a>
-                        <a href="{% url 'cancel_group_joining_request_by_admin' obj.user.username %}" class="btn btn-outline-info">Cancel</a>
-                    </div>
-                {% empty %}
-                    <h3>You Don't Have Any Request</h3>
-                {% endfor %}
+                {% if message %}
+                    <h3>Sorry You are not admin</h3>
+                {% else %}
+                    {% for obj in requests %}
+                        <div class="row">
+                            <h3>{{ obj.user }}</h3>
+                            <a href="{% url 'accept_request_for_joining_group' obj.user.username %}" class="btn btn-outline-info">Accept</a>
+                            <a href="{% url 'cancel_group_joining_request_by_admin' obj.user.username %}" class="btn btn-outline-info">Cancel</a>
+                        </div>
+                    {% empty %}
+                        <h3>You Don't Have Any Request</h3>
+                    {% endfor %}
+                {% endif %}
 
         </div>
 {#    </section>#}

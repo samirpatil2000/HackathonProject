@@ -56,6 +56,7 @@ def productDetailView(request,id):
     return render(request,'main/product_detail.html',context)
 
 
+@login_required
 def productListPage(request):
     context = {
         'objects': Product.objects.all()
@@ -81,36 +82,50 @@ def groupListPage(request):
 
 @login_required
 def uploadProduct(request):
-    user=request.user
-    productForm=ProductUploadForm()
-    if request.method=="POST":
-        productForm=ProductUploadForm(request.POST or None)
-        if productForm.is_valid():
-            prod=productForm.save(commit=False)
-            prod.user=user
-            prod.save()
-            return redirect('index-page')
-    context={
-        'form':productForm
-    }
-    return render(request,'product/productUploadForm.html',context)
+    try:
+        user=request.user
+        account=Account.objects.get(username=user.username)
+        group=account.group
+        productForm=ProductUploadForm()
+        if request.method=="POST":
+            productForm=ProductUploadForm(request.POST or None)
+            if productForm.is_valid():
+                prod=productForm.save(commit=False)
+                prod.user=user
+                prod.group=group
+                prod.save()
+                return redirect('index-page')
+        context={
+            'form':productForm
+        }
+        return render(request,'product/productUploadForm.html',context)
+    except:
+        messages.warning(request,"Please join a group")
+        return redirect('index-page')
 
 
 @login_required
 def create_product_request(request):
-    user=request.user
-    requestForm=CreateRequestForm()
-    if request.method=="POST":
-        requestForm=CreateRequestForm(request.POST or None)
-        if requestForm.is_valid():
-            prod_request=requestForm.save(commit=False)
-            prod_request.user=user
-            prod_request.save()
-            return redirect('index-page')
-    context={
-        'form':requestForm
-    }
-    return render(request,'product/createRequestForm.html',context)
+    try:
+        user=request.user
+        account = Account.objects.get(username=user.username)
+        group = account.group
+        requestForm=CreateRequestForm()
+        if request.method=="POST":
+            requestForm=CreateRequestForm(request.POST or None)
+            if requestForm.is_valid():
+                prod_request=requestForm.save(commit=False)
+                prod_request.user=user
+                prod_request.group = group
+                prod_request.save()
+                return redirect('index-page')
+        context={
+            'form':requestForm
+        }
+        return render(request,'product/createRequestForm.html',context)
+    except:
+        messages.warning(request,"Please join a group")
+        return redirect('index-page')
 
 @login_required
 def createGroup(request):
@@ -181,16 +196,18 @@ def request_list_for_joining_group(request):
     user_group=current_user.group
     try:
         if user in user_group.admins.all():
+            context = {
+                'group': user_group,
+            }
             try:
                 joining_requests=RequestForJoinGroup.objects.filter(group=user_group,is_accepted=False,is_cancelled=False)
+                context['requests']=joining_requests
             except:
                 messages.warning(request,f'There is no any joining request')
-                joining_requests = None
-            context={
-                'group':user_group,
-                'requests':joining_requests,
-            }
             return render(request,'main/group_admin.html',context)
+        else:
+            context={'group':user_group,'message':"You are not admin"}
+        return render(request, 'main/group_admin.html', context)
     except:
         messages.warning(request, f"You Don't have any group")
         return redirect('index-page')
