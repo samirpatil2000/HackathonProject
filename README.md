@@ -58,6 +58,20 @@ A user can share products for a particular period of time. Any resident who requ
 ```bash
 git clone https://github.com/samirpatil2000/HackathonProject.git
 ```
+* Create & Activate Virtual Environment For Windows
+
+```bash
+py -m venv env
+.\env\Scripts\activate
+```
+
+* Create & Activate Virtual Environment For MacOs/Linux
+
+```bash
+python3 -m venv env
+source env/bin/activate
+```
+
 
 * Install the requirements:
 
@@ -65,15 +79,11 @@ git clone https://github.com/samirpatil2000/HackathonProject.git
 pip install -r requirements.txt
 ```
 
-* Setup the local configurations:
-
-```bash
-cp .env.example .env
-```
 
 * Create the database:
 
 ```bash
+python manage.py makemigrations
 python manage.py migrate
 ```
 
@@ -87,7 +97,7 @@ The project will be available at **127.0.0.1:8000**.
 
 
 ### Security
-* Prevented From Vertical and Horizontal Previliedge Escalation
+* Prevented From Vertical and Horizontal Privileged Escalation
 
 
 
