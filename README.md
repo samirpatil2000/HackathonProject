@@ -35,6 +35,9 @@ A user can share products for a particular period of time. Any resident who requ
 16. The admins can **add** memberes, or **delete** members.
 17. The user requesting the product have to mention when he want he product and when will he return it.
 
+Suppose If you want ex. a hammer then instead of buying you can borrow it from your neighbor the. So we made a portal for it contains user is associated with a group that contains other society members and group admin who can decide who's a join request to accept. If the user wants a hammer then she/he will make a request for it and if any of the group members have that thing she/he will comment down there or click on the have this. And it will user who made the request will see all the user who and then text any one of them by choice
+By make complex relations between the users, groups give me a lot of understanding of Django models and how to use them effectively with less time-consuming. And how to use Django view effectively and model manager and give me a brief understanding of OPPS in python
+
  [Back to the top](#HackathonProject)
 
 
